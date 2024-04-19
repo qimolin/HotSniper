@@ -303,7 +303,7 @@ def ondemand_demo():
     run(['{:.1f}GHz'.format(4), 'ondemand', 'fastDVFS'], get_instance('parsec-blackscholes', 3, input_set='simsmall'))
 
 def main():
-    example()
+    #example()
     #test_static_power()
     # multi_program()
     ondemand_demo()

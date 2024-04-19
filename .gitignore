@@ -71,3 +71,6 @@ frontend
 sift
 xed
 pin.tar.gz
+
+# env file
+hotsniper.env
