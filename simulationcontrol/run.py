@@ -238,13 +238,13 @@ def get_workload(benchmark, cores, parallelism=None, number_tasks=None, input_se
 def example():
     for benchmark in (
                       'parsec-blackscholes',
-                      #'parsec-bodytrack',
-                      #'parsec-canneal',
-                      #'parsec-dedup',
-                      #'parsec-fluidanimate',
-                      #'parsec-streamcluster',
-                      #'parsec-swaptions',
-                      #'parsec-x264',
+                    #   'parsec-bodytrack',
+                    #   'parsec-canneal',
+                    #   'parsec-dedup',
+                    #   'parsec-fluidanimate',
+                    #   'parsec-streamcluster',
+                    #   'parsec-swaptions',
+                    #   'parsec-x264',
                       #'splash2-barnes',
                       #'splash2-fmm',
                       #'splash2-ocean.cont',
@@ -262,11 +262,40 @@ def example():
 
         min_parallelism = get_feasible_parallelisms(benchmark)[0]
         max_parallelism = get_feasible_parallelisms(benchmark)[-1]
-        for freq in (1, 2):
+        for freq in (2, ):
             #for parallelism in (max_parallelism,):
             for parallelism in (3, ):
                 # you can also use try_run instead
-                run(['{:.1f}GHz'.format(freq), 'maxFreq', 'slowDVFS'], get_instance(benchmark, parallelism, input_set='simsmall'))
+                run(['{:.1f}GHz'.format(freq), 'maxFreq', 'fastDVFS'], get_instance(benchmark, parallelism, input_set='simsmall'))
+
+def dvfsA2():
+    for benchmark in (
+                      'parsec-blackscholes',
+                      'parsec-bodytrack',
+                      'parsec-canneal',
+                      'parsec-dedup',
+                    #   'parsec-fluidanimate',
+                      'parsec-streamcluster',
+                      'parsec-swaptions',
+                      'parsec-x264',
+                      #'splash2-barnes',
+                      #'splash2-fmm',
+                      #'splash2-ocean.cont',
+                      #'splash2-ocean.ncont',
+                      #'splash2-radiosity',
+                      #'splash2-raytrace',
+                      #'splash2-water.nsq',
+                      #'splash2-water.sp',
+                      #'splash2-cholesky',
+                      #'splash2-fft',
+                      #'splash2-lu.cont',
+                      #'splash2-lu.ncont',
+                      #'splash2-radix',
+                      ):
+
+        # run(['{:.1f}GHz'.format(4), 'maxFreq', 'fastDVFS'], get_instance(benchmark, 4, input_set='simsmall'))
+        run(['{:.1f}GHz'.format(4), 'async', 'fastDVFS'], get_instance(benchmark, 4, input_set='simsmall'))
+        
 
 
 def multi_program():
@@ -303,10 +332,11 @@ def ondemand_demo():
     run(['{:.1f}GHz'.format(4), 'ondemand', 'fastDVFS'], get_instance('parsec-blackscholes', 3, input_set='simsmall'))
 
 def main():
-    #example()
-    #test_static_power()
+    # example()
+    # test_static_power()
     # multi_program()
-    ondemand_demo()
+    # ondemand_demo()
+    dvfsA2()
 
 if __name__ == '__main__':
     main()

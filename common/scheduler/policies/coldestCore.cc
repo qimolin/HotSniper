@@ -9,6 +9,7 @@ ColdestCore::ColdestCore(const PerformanceCounters *performanceCounters,
 std::vector<int> ColdestCore::map(String taskName, int taskCoreRequirement,
                                   const std::vector<bool> &availableCoresRO,
                                   const std::vector<bool> &activeCores) {
+  cout << "task name: " << taskName << endl;
   std::vector<bool> availableCores(availableCoresRO);
   std::vector<int> cores;
   logTemperatures(availableCores);

@@ -17,6 +17,7 @@
 #include "policies/dvfsOndemand.h"
 #include "policies/dvfsTestStaticPower.h"
 #include "policies/mapFirstUnused.h"
+#include "policies/dvfsAsim.h"
 
 #include <bits/stdc++.h>
 #include <iomanip>
@@ -371,7 +372,17 @@ void SchedulerOpen::initDVFSPolicy(String policyName) {
         performanceCounters, coreRows, coreColumns, minFrequency, maxFrequency,
         frequencyStepSize, upThreshold, downThreshold, dtmCriticalTemperature,
         dtmRecoveredTemperature);
-  } else {
+  } 
+  
+  
+  else if (policyName == "async") {
+    bool masterhigh = Sim()->getCfg()->getBool(
+        "scheduler/open/dvfs/master_high");
+    dvfsPolicy = new DVFSAsim(
+        performanceCounters, coreRows, coreColumns, masterhigh);
+  } 
+  
+  else {
     cout << "\n[Scheduler] [Error]: Unknown DVFS Algorithm" << endl;
     exit(1);
   }
