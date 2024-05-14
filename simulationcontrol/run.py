@@ -294,12 +294,27 @@ def multi_program():
 
     run(base_configuration, benchmarks)
 
-    
+def multi_threading():
+    input_set = 'simsmall'
+    base_configuration = ['4.0GHz', 'maxFreq', 'slowDVFS']
+    benchmark_set = (
+        'parsec-blackscholes',
+        'parsec-canneal',
+        'parsec-streamcluster',
+        'parsec-swaptions'
+    )
+    min_threads = 2
+    max_threads = 4
+    for benchmark in benchmark_set:
+        for thread in range(min_threads, max_threads + 1):
+            run(base_configuration, get_instance(benchmark, thread, input_set))
+ 
 def test_static_power():
     run(['4.0GHz', 'testStaticPower', 'slowDVFS'], get_instance('parsec-blackscholes', 3, input_set='simsmall'))
 
 
 def main():
+    # multi_threading()
     example()
     #test_static_power()
     # multi_program()
