@@ -18,6 +18,7 @@
 #include "policies/dvfsTestStaticPower.h"
 #include "policies/mapFirstUnused.h"
 #include "policies/dvfsAsim.h"
+#include "policies/stateOfTheArt.h"
 
 #include <bits/stdc++.h>
 #include <iomanip>
@@ -380,6 +381,21 @@ void SchedulerOpen::initDVFSPolicy(String policyName) {
         "scheduler/open/dvfs/master_high");
     dvfsPolicy = new DVFSAsim(
         performanceCounters, coreRows, coreColumns, masterhigh);
+  }
+
+  else if (policyName == "SOTA") {
+    float upThreshold =
+        Sim()->getCfg()->getFloat("scheduler/open/dvfs/ondemand/up_threshold");
+    float downThreshold = Sim()->getCfg()->getFloat(
+        "scheduler/open/dvfs/ondemand/down_threshold");
+    float dtmCriticalTemperature = Sim()->getCfg()->getFloat(
+        "scheduler/open/dvfs/ondemand/dtm_cricital_temperature");
+    float dtmRecoveredTemperature = Sim()->getCfg()->getFloat(
+        "scheduler/open/dvfs/ondemand/dtm_recovered_temperature");
+    dvfsPolicy = new DVFSSOTA(
+        performanceCounters, coreRows, coreColumns, minFrequency, maxFrequency,
+        frequencyStepSize, upThreshold, downThreshold, dtmCriticalTemperature,
+        dtmRecoveredTemperature);
   } 
   
   else {

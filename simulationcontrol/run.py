@@ -295,6 +295,34 @@ def dvfsA2():
 
         # run(['{:.1f}GHz'.format(4), 'maxFreq', 'fastDVFS'], get_instance(benchmark, 4, input_set='simsmall'))
         run(['{:.1f}GHz'.format(4), 'async', 'fastDVFS'], get_instance(benchmark, 4, input_set='simsmall'))
+
+def dvfsA3():
+    for benchmark in (
+                      'parsec-blackscholes',
+                    #   'parsec-bodytrack',
+                    #   'parsec-canneal',
+                    #   'parsec-dedup',
+                    #   'parsec-fluidanimate',
+                    #   'parsec-streamcluster',
+                    #   'parsec-swaptions',
+                    #   'parsec-x264',
+                      #'splash2-barnes',
+                      #'splash2-fmm',
+                      #'splash2-ocean.cont',
+                      #'splash2-ocean.ncont',
+                      #'splash2-radiosity',
+                      #'splash2-raytrace',
+                      #'splash2-water.nsq',
+                      #'splash2-water.sp',
+                      #'splash2-cholesky',
+                      #'splash2-fft',
+                      #'splash2-lu.cont',
+                      #'splash2-lu.ncont',
+                      #'splash2-radix',
+                      ):
+
+        # run(['{:.1f}GHz'.format(4), 'maxFreq', 'fastDVFS'], get_instance(benchmark, 4, input_set='simsmall'))
+        run(['4GHz', 'SOTA', 'slowDVFS'], get_instance(benchmark, 4, input_set='simsmall'))
         
 
 
@@ -336,7 +364,8 @@ def main():
     # test_static_power()
     # multi_program()
     # ondemand_demo()
-    dvfsA2()
+    # dvfsA2()
+    dvfsA3()
 
 if __name__ == '__main__':
     main()
