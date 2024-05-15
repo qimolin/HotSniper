@@ -27,5 +27,6 @@ private:
   float downThreshold;
   float dtmCriticalTemperature;
   float dtmRecoveredTemperature;
+  float maxUtil = 0.1;
   };
 #endif

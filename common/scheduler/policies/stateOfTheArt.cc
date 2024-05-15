@@ -38,6 +38,10 @@ DVFSSOTA::getFrequencies(const std::vector<int> &oldFrequencies,
         // use same period for upscaling and downscaling as described
         // in "The ondemand governor."
 
+        if (utilization > maxUtil){
+          maxUtil = utilization;
+        }
+
         if (temperature > dtmCriticalTemperature){
           
           cout << "Temp too high on core " << coreCounter << " downclocking" << endl;
@@ -64,7 +68,7 @@ DVFSSOTA::getFrequencies(const std::vector<int> &oldFrequencies,
 
           cout << "adjusting frq on core " << coreCounter << " based on current util" << endl;
 
-          frequency = 1.25 * frequency * (utilization/0.4);
+          frequency = 1.25 * frequency * (utilization/maxUtil);
           frequency = (frequency / frequencyStepSize) * frequencyStepSize; // round
           if (frequency < minFrequency) {
             frequency = minFrequency;
