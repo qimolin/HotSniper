@@ -28,5 +28,6 @@ private:
   float dtmCriticalTemperature;
   float dtmRecoveredTemperature;
   float maxUtil = 0.1;
+  std::vector<float> last10utils;
   };
 #endif

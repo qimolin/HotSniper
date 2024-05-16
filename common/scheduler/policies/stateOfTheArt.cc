@@ -42,7 +42,26 @@ DVFSSOTA::getFrequencies(const std::vector<int> &oldFrequencies,
           maxUtil = utilization;
         }
 
-        if (temperature > dtmCriticalTemperature){
+        if (last10utils.size() < 10){
+          last10utils.push_back(utilization);
+        }
+
+        else {
+          last10utils.erase(last10utils.begin());
+          last10utils.push_back(utilization);
+        }
+
+        float newMax = last10utils[0];
+        for (size_t i = 0; i < last10utils.size(); ++i){
+          if (last10utils[i] > newMax)
+              newMax = last10utils[i];
+        }
+
+        if (newMax - 0.2 < maxUtil){
+          maxUtil = newMax;
+        }
+
+        if (temperature > dtmCriticalTemperature - 5){
           
           cout << "Temp too high on core " << coreCounter << " downclocking" << endl;
           
