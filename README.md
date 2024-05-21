@@ -1,3 +1,9 @@
+# Possible imporvements
+- config step sizes
+- per core queues
+- medium dvfs with smaller step sizes
+- min effected change before a switch (optimize for switching costs)
+
 ### Also See: CoMeT Simulator
 
 CoMeT: CoMeT is next-generation open-source EDA toolchain for integrated core-memory interval thermal simulations of 2D, 2.5, and 3D multi-/many-core processors. CoMeT (partially) *subsumes* the code of HotSniper.
