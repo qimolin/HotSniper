@@ -19,6 +19,7 @@
 #include "policies/mapFirstUnused.h"
 #include "policies/dvfsAsim.h"
 #include "policies/stateOfTheArt.h"
+#include "policies/A4.h"
 
 #include <bits/stdc++.h>
 #include <iomanip>
@@ -396,6 +397,28 @@ void SchedulerOpen::initDVFSPolicy(String policyName) {
         performanceCounters, coreRows, coreColumns, minFrequency, maxFrequency,
         frequencyStepSize, upThreshold, downThreshold, dtmCriticalTemperature,
         dtmRecoveredTemperature);
+  }
+
+    else if (policyName == "A4") {
+    float upThreshold =
+        Sim()->getCfg()->getFloat("scheduler/open/dvfs/ondemand/up_threshold");
+    float downThreshold = Sim()->getCfg()->getFloat(
+        "scheduler/open/dvfs/ondemand/down_threshold");
+    float dtmCriticalTemperature = Sim()->getCfg()->getFloat(
+        "scheduler/open/dvfs/ondemand/dtm_cricital_temperature");
+    float dtmRecoveredTemperature = Sim()->getCfg()->getFloat(
+        "scheduler/open/dvfs/ondemand/dtm_recovered_temperature");
+    float algoStepFactor = Sim()->getCfg()->getFloat(
+        "scheduler/open/dvfs/ondemand/algo_step_factor");
+    float tempStepFactor = Sim()->getCfg()->getFloat(
+        "scheduler/open/dvfs/ondemand/temp_step_factor");
+    float degreesDown = Sim()->getCfg()->getFloat(
+        "scheduler/open/dvfs/ondemand/degreesDown");
+      
+    dvfsPolicy = new DVFSA4(
+        performanceCounters, coreRows, coreColumns, minFrequency, maxFrequency,
+        frequencyStepSize, upThreshold, downThreshold, dtmCriticalTemperature,
+        dtmRecoveredTemperature, algoStepFactor, tempStepFactor, degreesDown);
   } 
   
   else {

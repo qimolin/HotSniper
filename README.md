@@ -1,8 +1,9 @@
 # Possible imporvements
-- config step sizes
-- per core queues
-- medium dvfs with smaller step sizes
-- min effected change before a switch (optimize for switching costs)
+- X config step sizes
+- X per core queues
+- X medium dvfs with smaller step sizes
+- X min effected change before a switch (optimize for switching costs)
+- X steps scale by distance from critical temp
 
 ### Also See: CoMeT Simulator
 

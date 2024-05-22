@@ -300,7 +300,7 @@ def dvfsA3():
     for benchmark in (
                     #   'parsec-blackscholes',
                     #   'parsec-bodytrack',
-                      'parsec-canneal',
+                    #   'parsec-canneal',
                     #   'parsec-dedup',
                     #   'parsec-fluidanimate',
                     #   'parsec-streamcluster',
@@ -326,8 +326,8 @@ def dvfsA3():
         run(['4GHz', 'SOTA', 'fastDVFS'], get_instance(benchmark, 4, input_set='simsmall'))
     
     for benchmark in (
-                    #   'parsec-blackscholes',
-                    #   'parsec-bodytrack',
+                      'parsec-blackscholes',
+                      'parsec-bodytrack',
                     #   'parsec-canneal',
                     #   'parsec-dedup',
                     #   'parsec-fluidanimate',
@@ -352,6 +352,64 @@ def dvfsA3():
         # run(['{:.1f}GHz'.format(4), 'maxFreq', 'fastDVFS'], get_instance(benchmark, 4, input_set='simsmall'))
         print("RUN.PY: running  ondemand: " + benchmark)
         run(['4GHz', 'ondemand', 'fastDVFS'], get_instance(benchmark, 4, input_set='simsmall'))
+        
+
+def dvfsA4():
+    # for benchmark in (
+    #                   'parsec-blackscholes',
+    #                 #   'parsec-bodytrack',
+    #                 #   'parsec-canneal',
+    #                 #   'parsec-dedup',
+    #                 #   'parsec-fluidanimate',
+    #                 #   'parsec-streamcluster',
+    #                 #   'parsec-swaptions',
+    #                 #   'parsec-x264',
+    #                   #'splash2-barnes',
+    #                   #'splash2-fmm',
+    #                   #'splash2-ocean.cont',
+    #                   #'splash2-ocean.ncont',
+    #                   #'splash2-radiosity',
+    #                   #'splash2-raytrace',
+    #                   #'splash2-water.nsq',
+    #                   #'splash2-water.sp',
+    #                   #'splash2-cholesky',
+    #                   #'splash2-fft',
+    #                   #'splash2-lu.cont',
+    #                   #'splash2-lu.ncont',
+    #                   #'splash2-radix',
+    #                   ):
+
+    #     # run(['{:.1f}GHz'.format(4), 'maxFreq', 'fastDVFS'], get_instance(benchmark, 4, input_set='simsmall'))
+    #     print("RUN.PY: running SOTA : " + benchmark)
+    #     run(['4GHz', 'SOTA', 'fastDVFS'], get_instance(benchmark, 4, input_set='simsmall'))
+    
+    for benchmark in (
+                      'parsec-blackscholes',
+                    #   'parsec-bodytrack',
+                    #   'parsec-canneal',
+                    #   'parsec-dedup',
+                    #   'parsec-fluidanimate',
+                    #   'parsec-streamcluster',
+                    #   'parsec-swaptions',
+                    #   'parsec-x264',
+                      #'splash2-barnes',
+                      #'splash2-fmm',
+                      #'splash2-ocean.cont',
+                      #'splash2-ocean.ncont',
+                      #'splash2-radiosity',
+                      #'splash2-raytrace',
+                      #'splash2-water.nsq',
+                      #'splash2-water.sp',
+                      #'splash2-cholesky',
+                      #'splash2-fft',
+                      #'splash2-lu.cont',
+                      #'splash2-lu.ncont',
+                      #'splash2-radix',
+                      ):
+
+        # run(['{:.1f}GHz'.format(4), 'maxFreq', 'fastDVFS'], get_instance(benchmark, 4, input_set='simsmall'))
+        print("RUN.PY: running  A4: " + benchmark)
+        run(['4GHz', 'A4', 'mediumDVFS'], get_instance(benchmark, 4, input_set='simsmall'))
         
 
 
@@ -394,7 +452,7 @@ def main():
     # multi_program()
     # ondemand_demo()
     # dvfsA2()
-    dvfsA3()
+    dvfsA4()
 
 if __name__ == '__main__':
     main()
