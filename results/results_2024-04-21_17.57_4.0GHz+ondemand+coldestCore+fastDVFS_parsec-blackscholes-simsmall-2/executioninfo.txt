@@ -1,0 +1,5 @@
+started:    2024-04-21 17:57:14
+ended:      2024-04-21 18:12:44
+duration:   0:15:30.179796
+host:       7e8cffccf0e5
+tasks:      parsec-blackscholes-simsmall-2
