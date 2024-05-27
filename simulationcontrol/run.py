@@ -384,10 +384,10 @@ def dvfsA4():
     #     run(['4GHz', 'SOTA', 'fastDVFS'], get_instance(benchmark, 4, input_set='simsmall'))
     
     for benchmark in (
-                      'parsec-blackscholes',
+                    #   'parsec-blackscholes',
                     #   'parsec-bodytrack',
-                    #   'parsec-canneal',
-                    #   'parsec-dedup',
+                      'parsec-canneal',
+                      'parsec-dedup',
                     #   'parsec-fluidanimate',
                     #   'parsec-streamcluster',
                     #   'parsec-swaptions',
