@@ -298,11 +298,38 @@ def multi_program():
 def test_static_power():
     run(['4.0GHz', 'testStaticPower', 'slowDVFS'], get_instance('parsec-blackscholes', 3, input_set='simsmall'))
 
+    
+def ondemand_demo():
+    #run(['{:.1f}GHz'.format(4), 'ondemand', 'coldestCore', 'fastDVFS'], get_instance('parsec-blackscholes', 3, input_set='simsmall'))
+    #run(['{:.1f}GHz'.format(4), 'maxFreq', 'slowDVFS', 'coldestCore'], get_instance('parsec-blackscholes', 3, input_set='simsmall'))
+    #run(['{:.1f}GHz'.format(4), 'coldestCore', 'fastDVFS'], get_instance('parsec-bodytrack', 3, input_set='simsmall'))
+    #run(['{:.1f}GHz'.format(4), 'coldestCore', 'slowDVFS'], get_instance('parsec-blackscholes', 3, input_set='simsmall')) #1:50
+    #run(['{:.1f}GHz'.format(4), 'coldestCore', 'slowDVFS'], get_instance('parsec-blackscholes', 3, input_set='simsmall')) #2:150
+    #run(['{:.1f}GHz'.format(4), 'coldestCore', 'slowDVFS'], get_instance('parsec-blackscholes', 2, input_set='simsmall')) #3:150
+    #run(['{:.1f}GHz'.format(4), 'coldestCore', 'slowDVFS'], get_instance('parsec-blackscholes', 4, input_set='simsmall')) #4:150
+    #run(['{:.1f}GHz'.format(4), 'coldestCore', 'slowDVFS'], get_instance('parsec-bodytrack', 4, input_set='simsmall')) #5:150
+    #run(['{:.1f}GHz'.format(4), 'coldestCore', 'slowDVFS'], get_instance('parsec-dedup', 4, input_set='simsmall')) #6:150
+    #run(['{:.1f}GHz'.format(4), 'coldestCore', 'slowDVFS'], get_instance('parsec-swaptions', 3, input_set='simsmall')) #150
+    #run(['{:.1f}GHz'.format(4), 'coldestCore', 'slowDVFS'], get_instance('parsec-x264', 3, input_set='simsmall')) #150
+    #run(['{:.1f}GHz'.format(4), 'coldestCore', 'slowDVFS'], get_instance('parsec-blackscholes', 3, input_set='simsmall')) #150
+    #run(['{:.1f}GHz'.format(4), 'coldestCore', 'slowDVFS'], get_instance('parsec-swaptions', 3, input_set='simsmall')) #50
+    #run(['{:.1f}GHz'.format(4), 'coldestCore', 'slowDVFS'], get_instance('parsec-x264', 3, input_set='simsmall')) #50
+    #run(['{:.1f}GHz'.format(4), 'coldestCore', 'slowDVFS'], get_instance('parsec-blackscholes', 3, input_set='simsmall')) #50
+    #run(['{:.1f}GHz'.format(4), 'coldestCore', 'slowDVFS'], get_instance('parsec-bodytrack', 3, input_set='simsmall')) #50
+    #run(['{:.1f}GHz'.format(4), 'coldestCore', 'slowDVFS'], get_instance('parsec-bodytrack', 3, input_set='simsmall')) #150
+    #run(['{:.1f}GHz'.format(4), 'coldestCore', 'slowDVFS'], get_instance('parsec-swaptions', 3, input_set='simsmall')) #2000
+    #run(['{:.1f}GHz'.format(4), 'coldestCore', 'slowDVFS'], get_instance('parsec-x264', 3, input_set='simsmall')) #2000
+    #run(['{:.1f}GHz'.format(4), 'coldestCore', 'slowDVFS'], get_instance('parsec-blackscholes', 3, input_set='simsmall')) #2000
+    #run(['{:.1f}GHz'.format(4), 'coldestCore', 'slowDVFS'], get_instance('parsec-bodytrack', 3, input_set='simsmall')) #2000
+    #run(['4.0GHz', 'SOTA' , 'fastDVFS'], 'parsec-blackscholes-small-2,parsec-blackscholes-small-2')
+    #run(['4.0GHz', 'ondemand' , 'fastDVFS'], 'parsec-blackscholes-small-2,parsec-blackscholes-small-2')
+    run(['{:.1f}GHz'.format(4), 'SOTA', 'fastDVFS'], get_instance('parsec-blackscholes', 3, input_set='simsmall'))
+    
 
 def main():
-    example()
-    #test_static_power()
-    # multi_program()
+    # example()
+    ondemand_demo()
+
 
 if __name__ == '__main__':
     main()

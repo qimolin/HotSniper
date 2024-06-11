@@ -20,8 +20,10 @@ from resultlib import periodic_plot
 # Note: we cannot import sniper_lib.py because it python2 code, so
 # we call sniper_lib.py as an external program.
 def get_config_val(run, item):
-    cfg_file = os.path.join(os.getenv('GRAPHITE_ROOT'), 'results', run)
-    sniper_config_prog = os.path.join(os.getenv('GRAPHITE_ROOT'), 'tools/sniper_lib.py')
+    #cfg_file = os.path.join(os.getenv('GRAPHITE_ROOT'), 'results', run)
+    #sniper_config_prog = os.path.join(os.getenv('GRAPHITE_ROOT'), 'tools/sniper_lib.py')
+    cfg_file = os.path.join(os.getcwd(), 'results', run)
+    sniper_config_prog = os.path.join(os.getcwd(), 'tools/sniper_lib.py')
     return subprocess.check_output(["python2", sniper_config_prog, cfg_file, item])
 
 # Return the value of item in results/'run'/sim.cfg as a boolean.

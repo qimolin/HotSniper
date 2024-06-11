@@ -60,7 +60,9 @@ def plot_periodic_log(filename, core_level=False, no_display=True,
 # Plot dataframe 'fd' to display and write plot to file in pdf, png and eps.
 def do_plot(df, filename, plot_name='', no_display=True,
         x_label='Time (ms)', y_label='Metric'):
+    cycler = plt.cycler(linestyle=['solid', 'dotted', 'dashed', 'dashdot'], color=['red', 'black', 'blue', 'green'])
     fig, axs = plt.subplots(figsize=(12,12))
+    axs.set_prop_cycle(cycler)
     df.plot(ax=axs)
     fp = Path(filename)
     axs.set_xlabel(x_label)
